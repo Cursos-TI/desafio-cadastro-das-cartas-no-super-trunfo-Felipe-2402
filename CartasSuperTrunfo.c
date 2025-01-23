@@ -1,21 +1,19 @@
-super trunfo completo
+
 #include <stdio.h>
 #define NUM_ESTADOS 8
 #define CIDADES_POR_ESTADO 4
-
-// Estrutura para armazenar os dados de uma cidade
 typedef struct {
-    char codigo[4]; // Código da carta, ex: "A01"
-    int populacao;  // População da cidade
-    float area;     // Área da cidade em km²
-    float pib;      // PIB da cidade em milhões
-    int pontos_turisticos; // Número de pontos turísticos
+    char codigo[4]; 
+    int populacao;  
+    float area;    
+    float pib;     
+    int pontos_turisticos; 
 } Cidade;
 
 void cadastrar_cidades(Cidade cidades[NUM_ESTADOS][CIDADES_POR_ESTADO]) {
     for (int i = 0; i < NUM_ESTADOS; i++) {
         for (int j = 0; j < CIDADES_POR_ESTADO; j++) {
-            // Gerar código da carta
+          
             sprintf(cidades[i][j].codigo, "%c%02d", 'A' + i, j + 1);
 
             printf("\n--- Cadastro da cidade %s ---\n", cidades[i][j].codigo);
@@ -49,14 +47,8 @@ void exibir_cidades(Cidade cidades[NUM_ESTADOS][CIDADES_POR_ESTADO]) {
 
 int main() {
     Cidade cidades[NUM_ESTADOS][CIDADES_POR_ESTADO];
-
     printf("Bem-vindo ao sistema de cadastro de cartas do Super Trunfo - Países!\n");
-
-    // Cadastro das cidades
     cadastrar_cidades(cidades);
-
-    // Exibição dos dados cadastrados
     exibir_cidades(cidades);
-
     return 0;
 }
